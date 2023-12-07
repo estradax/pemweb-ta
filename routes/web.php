@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', DashboardController::class)->name('admin.dashboard.index');
-
+Route::get('/login', [LoginController::class, 'index'])->name('login');
