@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::get('/', function () {
 
 Route::get('/admin', DashboardController::class)->name('admin.dashboard.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
