@@ -30,6 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Fasilitas</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="vendor/login.php">Reservasi</a></li>
                         <li class="nav-item"><a class="nav-link" href="vendor/login.php">Login</a></li>
                     </ul>
                 </div>
