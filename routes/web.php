@@ -18,8 +18,13 @@ use App\Http\Controllers\ReservationController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/admin', DashboardController::class)->name('admin.dashboard.index');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::middleware('guest')->group(function() {
+    Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+    Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+});
+
 Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
