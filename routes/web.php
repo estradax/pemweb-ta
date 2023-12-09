@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Middleware\IsAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/admin', DashboardController::class)->name('admin.dashboard.index');
+Route::middleware(IsAdmin::class)->group(function() {
+    Route::get('/admin', DashboardController::class)->name('admin.dashboard.index');
+});
 
 Route::middleware('guest')->group(function() {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
