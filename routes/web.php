@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReservationController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Route::middleware(IsAdmin::class)->group(function() {
     Route::get('/admin', DashboardController::class)->name('admin.dashboard.index');
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
 });
 
 Route::middleware('guest')->group(function() {
