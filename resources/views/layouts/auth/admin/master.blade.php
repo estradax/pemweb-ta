@@ -66,6 +66,7 @@
             $dashboardRoute = 'admin.dashboard.index';
             $userRoute = 'admin.users.index';
             $roomRoute = 'admin.rooms.index';
+            $reservationRoute = 'admin.reservations.index';
           @endphp
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -79,8 +80,8 @@
             <li class="@if (Route::getCurrentRoute()->getName() == $roomRoute) active @endif">
               <a href="{{ route($roomRoute) }}" class="nav-link"><i class="fas fa-table"></i><span>Room</span></a>
             </li>
-            <li>
-              <a href="" class="nav-link"><i class="fas fa-table"></i><span>Reservation</span></a>
+            <li class="@if (Route::getCurrentRoute()->getName() == $reservationRoute) active @endif">
+              <a href="{{ route($reservationRoute) }}" class="nav-link"><i class="fas fa-table"></i><span>Reservation</span></a>
             </li>
           </ul>
 
