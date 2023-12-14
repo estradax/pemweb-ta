@@ -43,4 +43,11 @@ class RoomController extends Controller
 
         return to_route('admin.rooms.index');
     }
+
+    public function destroy(Room $room)
+    {
+        $room->delete();
+
+        return to_route('admin.rooms.index');
+    }
 }

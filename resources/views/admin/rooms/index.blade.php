@@ -31,6 +31,7 @@
                         <td>{{ $room->price }}</td>
                         <td>
                           <a class="btn btn-primary" href="{{ route('admin.rooms.edit', $room->id) }}">Edit</a>
+                          <a class="btn btn-danger" href="{{ route('admin.rooms.destroy', $room->id) }}">Delete</a>
                         </td>
                       </tr>
                     @empty
