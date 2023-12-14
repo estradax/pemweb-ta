@@ -6,6 +6,11 @@
         <h1>Room</h1>
       </div>
       <div class="section-body">
+        <div class="card">
+          <div class="card-header justify-content-between align-items-center">
+            <h4>Room</h4>
+            <a class="btn btn-primary" href="{{ route('admin.rooms.create') }}">Add</a>
+          </div>
         <div class="card-body">
                 <table class="table table-striped">
                   <thead>
@@ -36,6 +41,7 @@
                   </tbody>
                 </table>
               </div>
+        </div>
       </div>
     </section>
 @endsection
