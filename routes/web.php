@@ -32,6 +32,8 @@ Route::middleware(IsAdmin::class)->group(function() {
     Route::get('/admin/rooms', [RoomController::class, 'index'])->name('admin.rooms.index');
     Route::get('/admin/rooms/create', [RoomController::class, 'create'])->name('admin.rooms.create');
     Route::post('/admin/rooms', [RoomController::class, 'store'])->name('admin.rooms.store');
+    Route::get('/admin/rooms/{room}/edit', [RoomController::class, 'edit'])->name('admin.rooms.edit');
+    Route::post('/admin/rooms/{room}', [RoomController::class, 'update'])->name('admin.rooms.update');
 
     Route::get('/admin/reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
 });

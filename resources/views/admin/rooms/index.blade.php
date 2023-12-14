@@ -30,7 +30,7 @@
                         <td>{{ $room->bed_count }}</td>
                         <td>{{ $room->price }}</td>
                         <td>
-                          <a class="btn btn-primary" href="#">Edit</a>
+                          <a class="btn btn-primary" href="{{ route('admin.rooms.edit', $room->id) }}">Edit</a>
                         </td>
                       </tr>
                     @empty
