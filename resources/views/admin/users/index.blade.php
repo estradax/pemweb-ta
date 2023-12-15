@@ -17,6 +17,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
+                  <th scope="col">Role</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -26,8 +27,10 @@
                     <th scope="row">{{ $loop->index + 1 }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>@if ($user->is_admin) Admin @else User @endif</td>
                     <td>
-                      <a class="btn btn-primary" href="#">Edit</a>
+                      <a class="btn btn-primary" href="{{ route('admin.users.edit', $user->id) }}">Edit</a>
+                      <a class="btn btn-danger" href="{{ route('admin.users.destroy', $user->id) }}">Delete</a>
                     </td>
                   </tr>
                 @empty
