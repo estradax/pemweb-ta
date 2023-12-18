@@ -54,7 +54,9 @@ Route::middleware('guest')->group(function() {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
+    Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+
     Route::get('/logout', LogoutController::class)->name('logout');
 });
 
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');

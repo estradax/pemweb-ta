@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('bg-masthead.jpg'); 
+            background-image: url('bg-masthead.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -52,33 +52,25 @@
 
     <h2 style="text-align: center; color: #fff;">Reservasi Hotel</h2>
 
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Proses formulir disini
-            $nama = $_POST["nama"];
-            $checkin = $_POST["checkin"];
-            $checkout = $_POST["checkout"];
-            $jumlah = $_POST["jumlah"];
+    <form action="{{ route('reservation.store') }}" method="post">
+        @csrf
 
-            // Lakukan pemrosesan lebih lanjut, misalnya menyimpan ke database
-            // ...
+        <label for="nama">User:</label>
+        <input disabled type="text" id="nama" name="nama" value="{{ Auth::user()->name }} ({{ Auth::user()->email }})">
 
-            echo "<p style='color: #fff; text-align: center;'>Reservasi untuk $nama berhasil dibuat.</p>";
-        }
-    ?>
+        <label for="checkin">Check-in:</label>
+        <input disabled type="date" id="checkin" name="checkin" value="{{ now()->format('Y-m-d') }}">
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <label for="nama">Nama Pelanggan:</label>
-        <input type="text" id="nama" name="nama" required>
+        <label for="day_count">Day count:</label>
+        <input type="number" id="day_count" name="day_count">
 
-        <label for="checkin">Tanggal Check-in:</label>
-        <input type="date" id="checkin" name="checkin" required>
-
-        <label for="checkout">Tanggal Check-out:</label>
-        <input type="date" id="checkout" name="checkout" required>
-
-        <label for="jumlah">Jumlah Tamu:</label>
-        <input type="number" id="jumlah" name="jumlah" min="1" required>
+        <label>Room:</label>
+        <select class="form-control select2" name="room_id">
+            <option value="">Select...</option>
+            @foreach ($rooms as $room)
+                <option value="{{ $room->id }}">{{ $room->public_id }} Cap. {{ $room->bed_count }}</option>
+            @endforeach
+        </select>
 
         <button type="submit">Submit Reservasi</button>
     </form>
