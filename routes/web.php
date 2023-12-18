@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\IsAdmin;
 
@@ -50,6 +51,10 @@ Route::middleware(IsAdmin::class)->group(function() {
 Route::middleware('guest')->group(function() {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', LogoutController::class)->name('logout');
 });
 
 Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
