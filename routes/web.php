@@ -40,6 +40,11 @@ Route::middleware(IsAdmin::class)->group(function() {
     Route::get('/admin/rooms/{room}', [RoomController::class, 'destroy'])->name('admin.rooms.destroy');
 
     Route::get('/admin/reservations', [AdminReservationController::class, 'index'])->name('admin.reservations.index');
+    Route::get('/admin/reservations/create', [AdminReservationController::class, 'create'])->name('admin.reservations.create');
+    Route::post('/admin/reservations', [AdminReservationController::class, 'store'])->name('admin.reservations.store');
+    Route::get('/admin/reservations/{reservation}/edit', [AdminReservationController::class, 'edit'])->name('admin.reservations.edit');
+    Route::post('/admin/reservations/{reservation}', [AdminReservationController::class, 'update'])->name('admin.reservations.update');
+    Route::get('/admin/reservations/{reservation}', [AdminReservationController::class, 'destroy'])->name('admin.reservations.destroy');
 });
 
 Route::middleware('guest')->group(function() {

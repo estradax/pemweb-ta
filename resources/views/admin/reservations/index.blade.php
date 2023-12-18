@@ -7,8 +7,9 @@
       </div>
       <div class="section-body">
         <div class="card">
-          <div class="card-header">
+          <div class="card-header justify-content-between align-items-center">
             <h4>Reservation</h4>
+            <a class="btn btn-primary" href="{{ route('admin.reservations.create') }}">Add</a>
           </div>
           <div class="card-body">
             <table class="table table-striped">
@@ -31,7 +32,8 @@
                     <td>{{ $reservation->day_count }}</td>
                     <td>{{ $reservation->total_price }}</td>
                     <td>
-                      <a class="btn btn-primary" href="#">Edit</a>
+                      <a class="btn btn-primary" href="{{ route('admin.reservations.edit', $reservation->id) }}">Edit</a>
+                      <a class="btn btn-danger" href="{{ route('admin.reservations.destroy', $reservation->id) }}">Delete</a>
                     </td>
                   </tr>
                 @empty

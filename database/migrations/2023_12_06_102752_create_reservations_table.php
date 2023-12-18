@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Room::class);
+            $table->foreignIdFor(User::class)->unique()->onDelete('cascade');
+            $table->foreignIdFor(Room::class)->unique()->onDelete('cascade');
             $table->integer('day_count')->unsigned();
             $table->timestamps();
         });
