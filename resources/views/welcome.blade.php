@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Fasilitas</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="vendor/login.php">Reservasi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('reservation') }}">Reservasi</a></li>
                         @guest
                             <li class="nav-item"><a class="nav-link" href="{{ route('login.index') }}">Login</a></li>
                         @endguest
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">Selamat datang ke website hotel kami,Salah satu hotel yang memiliki fasilitas yang banyak dan mewah dengan view yang memanjakan mata anda dengan service yang ramah dan sopan </p>
-                        <a class="btn btn-primary btn-xl" href="#about">Reserve now !</a>
+                        <a class="btn btn-primary btn-xl" href="{{ route('reservation') }}">Reserve now !</a>
                     </div>
                 </div>
             </div>

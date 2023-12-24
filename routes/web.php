@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ReservationController as AdminReservationController;
 use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\InvoiceReservationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -56,6 +57,8 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->group(function () {
     Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+
+    Route::get('/invoice-reservation/{encryptedId}', [InvoiceReservationController::class, 'index'])->name('invoiceReservation.index');
 
     Route::get('/logout', LogoutController::class)->name('logout');
 });

@@ -26,8 +26,8 @@
 </head>
 <body>
     <?php
-    
-    $reservationSuccess = true; 
+
+    $reservationSuccess = true;
 
     if ($reservationSuccess) {
         echo '<h2 class="success">Reservasi Berhasil!</h2>';
@@ -38,18 +38,13 @@
 
     <p>Terima kasih telah memilih hotel kami. Berikut adalah rincian reservasi Anda:</p>
 
-    <?php
-    
-    if ($reservationSuccess) {
-        echo '<p>Nomor Reservasi: ABC123</p>';
-        echo '<p>User: ' . Auth::user()->name . ' (' . Auth::user()->email . ')</p>';
-        echo '<p>Tanggal Check-in: ' . now()->format('Y-m-d') . '</p>';
-        echo '<p>Durasi Menginap: ' . $_POST['day_count'] . ' hari</p>';
-        echo '<p>Kamar: ' . $_POST['room_id'] . '</p>';
-        
-    }
-    ?>
+    <p>Nomor Reservasi: {{ $reservation->id }}</p>
+    <p>User: {{ $reservation->user->name }} ({{ $reservation->user->email }})</p>
+    <p>Tanggal Check-in: {{ $reservation->created_at->format('Y-m-d') }}</p>
+    <p>Durasi Menginap: {{ $reservation->day_count }} hari</p>
+    <p>Kamar:  {{ $reservation->room->public_id }} </p>
+    <p>Total Harga: {{ $reservation->room->price }} x {{ $reservation->day_count }} = {{ $reservation->room->price * $reservation->day_count }} </p>
 
-    <p><a href="welcome.blade.php">Kembali ke Halaman Utama</a></p>
+    <p><a href="{{ route('welcome') }}">Kembali ke Halaman Utama</a></p>
 </body>
 </html>
