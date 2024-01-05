@@ -9,14 +9,11 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('bg-masthead.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #614E42;
         }
         form {
             background-color: rgba(255, 255, 255, 0.8);
@@ -46,12 +43,18 @@
         button:hover {
             background-color: #45a049;
         }
+
+        img {
+            max-width: 100%;
+            width: 600px;
+            margin-right: 2rem;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
 
-    <h2 style="text-align: center; color: #fff;">Reservasi Hotel</h2>
-
+    <img src="https://images.unsplash.com/photo-1455587734955-081b22074882?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
     <form action="{{ route('reservation.store') }}" method="post">
         @csrf
 
