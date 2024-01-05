@@ -30,10 +30,10 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="/ncss/images/img-01.png" alt="IMG">
 				</div>
-				<form class="login100-form validate-form" method="post" action="{{ route('login.store') }}">
+				<form class="login100-form validate-form" method="post" action="{{ route('register.store') }}">
                     @csrf
 					<span class="login100-form-title">
-						Member Login
+						Member Register
 					</span>
                     @if ($errors->isNotEmpty())
                         <ul>
@@ -42,6 +42,14 @@
                             @endforeach
                         </ul>
                     @endif
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="name" placeholder="Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
@@ -60,22 +68,13 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Login
+                            Register
 						</button>
 					</div>
 
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div>
-
 					<div class="text-center p-t-136">
-						<a class="txt2" href="{{ route('register.index') }}">
-							Create your Account
+						<a class="txt2" href="{{ route('login.index') }}">
+                            Already have an account
 							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
